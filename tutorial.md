@@ -13,14 +13,16 @@ This ~3 hour workshop is meant to show you how to get started using snakemake. T
 Note, the only way you'll really learn to do all of this is by applying it to your own research and spending time on it :).
 
 ### Why use a workflow management tool?
-Dependency management
-Reentrancy - start back up where you left off
-Reusable
-Documented
-Portable
-There are many to choose from:
+Dependency management . 
+Reentrancy - start back up where you left off . 
+Reusable . 
+Documented . 
+Portable . 
+
+There are many to choose from:  
 https://github.com/pditommaso/awesome-pipeline
-Informatics uses snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.
+
+Informatics uses snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.  
 
 ### Rough schedule
 
