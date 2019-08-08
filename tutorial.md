@@ -4,8 +4,6 @@ Modified from Author: C. Titus Brown, titus@idyll.org
 
 No license; the below content is under CC0. (Do with it what you will, and I hope it's useful!)
 
-[toc]
-
 ### Introduction and thoughts
 
 Hi! I'm Titus, I'm a prof here, I do a lot of data analysis :).
