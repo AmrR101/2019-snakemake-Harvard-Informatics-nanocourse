@@ -1,27 +1,10 @@
 # Intro to workflows for efficient automated data analysis, using snakemake
 
-Author: C. Titus Brown, titus@idyll.org
+Modified from Author: C. Titus Brown, titus@idyll.org
 
 No license; the below content is under CC0. (Do with it what you will, and I hope it's useful!)
 
-The official home of this material is on GitHub, at [ctb/2019-snakemake-ucdavis/](https://github.com/ctb/2019-snakemake-ucdavis/blob/master/tutorial.md).
-
 [toc]
-
-## Front matter
-
-Please adhere to the [Carpentries Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html). Two key points:
-
-* this isn't a venue to show off your own experience
-* this isn't a dating scene
-
-### Venue information
-
-Bathrooms are just outside! Water is around the corner in the kitchen! Elevator is in the corner outside the side door!
-
-### Recording
-
-**Note** that this will be recorded and made available to others; probably only audio from the audience. Please let me know if you need something removed from the audio, thanks!
 
 ### Introduction and thoughts
 
@@ -31,23 +14,21 @@ This ~3 hour workshop is meant to show you how to get started using snakemake. T
 
 Note, the only way you'll really learn to do all of this is by applying it to your own research and spending time on it :).
 
+### Why use a workflow management tool?
+Dependency management
+Reentrancy - start back up where you left off
+Reusable
+Documented
+Portable
+There are many to choose from:
+https://github.com/pditommaso/awesome-pipeline
+Informatics uses snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.
+
 ### Rough schedule
 
 9 - 10:15 - snakemake 1
 10:15-10:30 - break
 10:30 - noon - snakemake 2
-
-### More resources on campus
-
-The UC Davis [Data Science Initiative](http://dsi.ucdavis.edu/) offers [workshops](http://dsi.ucdavis.edu/workshops.html)!
-
-The UC Davis bioinformatics core has a [training program](https://bioinformatics.ucdavis.edu/training/)!
-
-The [Davis R Users Group](https://d-rug.github.io/) is a great resource for R!
-
-My lab runs regular [office hours, called Meet and Analyze Data](https://dib-training.readthedocs.io/en/pub/#meet-and-analyze-data-mad) on Wednesday afternoon.
-
-[Check out DIBSI](http://ivory.idyll.org/dibsi/), which is a set of summer workshops that my lab runs. (Not yet announced for 2019, but it will be July 1-July 12).
 
 
 ## Software we're going to use
@@ -63,18 +44,6 @@ You could use this install file to run everything we're doing today on your lapt
 conda env create --file environment.yml -n smake
 conda activate smake
 ```
-
-## Working on binder
-
-We're going to use mybinder.org, a fantastic service that lets us run demonstrations and short workshops in the cloud! Click on the button below to get started:
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ctb/2019-snakemake-ucdavis/feb2019?urlpath=rstudio)
-
-We're mostly going to work in the file editor and the terminal; to get started, open the terminal, and execute:
-```
-PS1='$ '
-```
-to get a shorter prompt.
 
 ## Running snakemake!
 
