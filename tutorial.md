@@ -6,18 +6,19 @@ No license; the below content is under CC0. (Do with it what you will, and I hop
 
 ### Introduction and thoughts
 
-Hi! I'm Titus, I'm a prof here, I do a lot of data analysis :).
+Hi! I'm Ming Tang, I am a bioinformatics scientist at FAS informatics. I do a lot of data analysis :).
 
-This ~3 hour workshop is meant to show you how to get started using snakemake. This is something that my lab has really adopted in the last 3 years, and it's been an amazing and wonderful journey.
+This ~3 hour workshop is meant to show you how to get started using snakemake. This is something I picked up 2 years ago and I now use it for my daily work.
 
 Note, the only way you'll really learn to do all of this is by applying it to your own research and spending time on it :).
 
 ### Why use a workflow management tool?
-Dependency management . 
-Reentrancy - start back up where you left off . 
-Reusable . 
-Documented . 
-Portable . 
+
+* Dependency management . 
+* Reentrancy - start back up where you left off 
+* Reusable . 
+* Documented . 
+* Portable . 
 
 There are many to choose from:  
 https://github.com/pditommaso/awesome-pipeline
