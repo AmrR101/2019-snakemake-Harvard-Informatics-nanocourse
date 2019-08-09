@@ -57,7 +57,7 @@ rule fastqc_a_file:
   shell:
     "fastqc data/0Hour_001_1.fq.gz"
 ```
-(I suggest copy/pasting this into RStudio.)
+(I suggest copy/pasting this into JypyterLab.)
 
 Then save it as a file named `Snakefile`.
 
