@@ -1,6 +1,8 @@
 # Intro to workflows for efficient automated data analysis, using snakemake
 
-Modified from Author: C. Titus Brown, titus@idyll.org
+Authors: Meghan Porter-Mahoney and Ming Tang
+
+Modified from https://github.com/ctb/2019-snakemake-ucdavis
 
 No license; the below content is under CC0. (Do with it what you will, and I hope it's useful!)
 
@@ -27,9 +29,9 @@ Informatics uses snakemake for the post sequencing pipeline and other workflows 
 
 ### Rough schedule
 
-9 - 10:15 - snakemake 1
-10:15-10:30 - break
-10:30 - noon - snakemake 2
+9 - 10:15 - snakemake 1 . 
+10:15-10:30 - break . 
+10:30 - noon - snakemake 2 . 
 
 
 ## Software we're going to use
@@ -49,6 +51,12 @@ conda activate smake
 ## Running snakemake!
 
 ### Getting started - your first Snakefile
+
+To get a copy of the content of this workshop, do 
+
+```bash
+git clone https://github.com/crazyhottommy/2019-snakemake-Harvard-Informatics-nanocourse
+```
 
 Create a new text file (`File`, `New File`, `Text file`) and write:
 
