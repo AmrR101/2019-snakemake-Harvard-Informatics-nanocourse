@@ -10,32 +10,32 @@ No license; the below content is under CC0. (Do with it what you will, and I hop
 
 Hi! I'm Ming Tang, I am a bioinformatics scientist at FAS informatics. I do a lot of data analysis :).
 
-This ~3 hour workshop is meant to show you how to get started using snakemake. This is something I picked up 2 years ago and I now use it for my daily work.
+This ~2 hour workshop is meant to show you how to get started using snakemake. This is something I picked up 2 years ago and I now use it for my daily work.
 
 Note, the only way you'll really learn to do all of this is by applying it to your own research and spending time on it :).
 
 ### Why use a workflow management tool?
 
-* Dependency management . 
-* Reentrancy - start back up where you left off 
-* Reusable . 
-* Documented . 
-* Portable . 
+* Dependency management .
+* Reentrancy - start back up where you left off
+* Reusable .
+* Documented .
+* Portable .
 
-There are many to choose from:  
+There are many to choose from:
 https://github.com/pditommaso/awesome-pipeline
 
-Informatics uses snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.  
+Informatics uses snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.
 
 ### Rough schedule
 
-9 - 10:15 - snakemake 1 . 
-10:15-10:30 - break . 
-10:30 - noon - snakemake 2 . 
+9 - 10:15 - snakemake 1 .
+10:15-10:30 - break .
+10:30 - noon - snakemake 2 .
 
 ### Tasks we are gonig to do
 
-Inside the `data` folder, there are 8 fastq.gz files. We will do `fastqc` on each fastq files and we are going to compile multiple html files to a single one using `multiQC`. 
+Inside the `data` folder, there are 8 fastq.gz files. We will do `fastqc` on each fastq files and we are going to compile multiple html files to a single one using `multiQC`.
 
 ## Software we're going to use
 
@@ -45,17 +45,42 @@ We'll be implementing a short read quality check and trimming pipeline, using [f
 
 You can see the full set of installed software requirements [here](https://github.com/ctb/2019-snakemake-ucdavis/blob/master/binder/environment.yml), in a conda `environment.yml` file.
 
-You could use this install file to run everything we're doing today on your laptop, with: 
+## Get setup
+
+Go to https://vdi.rc.fas.harvard.edu and open a "interactive app" from the top
+menu and select "Jupyter Lab".
+
+![interactive app](img/interactive_app.png)
+
+Wait for a couple minutes for your session to be created then click "Connect to Jupyter".
+
+![connect](img/connect.png)
+
+Open a terminal and in your home dir.
+
+We've installed everything you need with conda in this interactive session. Just ensure that you are using the correct conda.
 ```
-conda env create --file environment.yml -n smake
-conda activate smake
+mportermahoney@holy7c19212:~$ which conda
+/opt/conda/bin/conda
 ```
+
+(If you don't see the conda as above, then maybe you are using some conda from your home dir, if so please temporarily remove it from your path by opening ~/.bashrc and commenting out the prefix to PATH.)
+
+clone this repo into your home dir:
+
+```
+git clone git@github.com:crazyhottommy/2019-snakemake-Harvard-Informatics-nanocourse.git
+```
+
+Navigate to that folder.  Then open the tutorial.md file as a markdown preview.
+
+![markdown](img/markdown.png)
 
 ## Running snakemake!
 
 ### Getting started - your first Snakefile
 
-To get a copy of the content of this workshop, do 
+To get a copy of the content of this workshop, do
 
 ```bash
 git clone https://github.com/crazyhottommy/2019-snakemake-Harvard-Informatics-nanocourse
@@ -96,7 +121,7 @@ and there will be two new files,
 Points to make:
 * the snakemake configuration file is by default called `Snakefile`
 
-### Updating the Snakefile to track inputs and outputs 
+### Updating the Snakefile to track inputs and outputs
 
 At the moment this is basically just a shell script with extra syntax... what's the point?
 
@@ -104,7 +129,7 @@ Well, shell scripts - and this snakefile, too - will rerun the command every tim
 
 **Digression:** This is particularly important for large or long workflows, where you're dealing with 10s to 100s of files that may take hours to days to process! It can be hard to figure out which files to rerun, but (spoiler alert) snakemake can really help you do this!
 
-It's hard to track this kind of thing in a shell script - I usually just comment out the lines I don't want run, or break my commands up into multiple shell scripts so they don't take so long - but with snakemake, you can annotate the rule with input and output files! 
+It's hard to track this kind of thing in a shell script - I usually just comment out the lines I don't want run, or break my commands up into multiple shell scripts so they don't take so long - but with snakemake, you can annotate the rule with input and output files!
 
 Change your snakefile to look like this:
 
@@ -428,7 +453,7 @@ rule all:
     "data/0Hour_001_1_fastqc.html",
     "data/6Hour_001_1_fastqc.html",
     "multiqc_report.html"
-    
+
 rule fastqc_a_file:
   input:
     "{filename}.fq.gz"
@@ -437,7 +462,7 @@ rule fastqc_a_file:
     "{filename}_fastqc.zip"
   shell:
     "fastqc {input}"
-    
+
 rule run_multiqc:
   output:
     "multiqc_report.html",
@@ -503,7 +528,7 @@ rule all:
   input:
     fastqc_output,
     "multiqc_report.html"
-    
+
 rule fastqc_a_file:
   input:
     "{filename}.fq.gz"
@@ -512,7 +537,7 @@ rule fastqc_a_file:
     "{filename}_fastqc.zip"
   shell:
     "fastqc {input}"
-    
+
 rule run_multiqc:
   input:
     fastqc_output
@@ -548,7 +573,7 @@ fastqc_output = ["data/0Hour_001_1_fastqc.html", "data/6Hour_001_1_fastqc.html",
 rule all:
   input:
     "multiqc_report.html"
-    
+
 rule fastqc_a_file:
   input:
     "{filename}.fq.gz"
@@ -557,7 +582,7 @@ rule fastqc_a_file:
     "{filename}_fastqc.zip"
   shell:
     "fastqc {input}"
-    
+
 rule run_multiqc:
   input:
     fastqc_output
@@ -594,7 +619,7 @@ rerunning.
 
 It's kind of annoying to have to delete things explicitly. Snakemake should take care of that for us. Let's add a new rule, `clean`, that forces rerunning of things --
 
-``` 
+```
 rule clean:
   shell:
     "rm -f {fastqc_output} multiqc_report.html"
@@ -695,7 +720,7 @@ snakemake -n
 
 ### Running things in parallel, revisited
 
-Above, we saw that you can use `snakemake -j 4` to run four jobs in parallel. Here are some other 
+Above, we saw that you can use `snakemake -j 4` to run four jobs in parallel. Here are some other
 
 * all the output is sort of smushed together... if a rule fails, it may be hard to figure out what happened. You can always just rerun snakemake.
 * still need to be careful about how much memory and processor you're using!
@@ -765,14 +790,14 @@ for filename in fastqc_input:
 for filename in fastqc_input:
   new_filename = filename.split('.')[0] + '.pe.qc_fastqc.html'
   fastqc_output.append(new_filename)
-  
+
 print('from these input files', fastqc_input, file=sys.stderr)
 print('I constructed these output filenames', fastqc_output, file=sys.stderr)
 
 rule all:
   input:
     "multiqc_report.html"
-    
+
 rule clean:
   shell:
     "rm -f {fastqc_output} multiqc_report.html"
@@ -788,7 +813,7 @@ rule fastqc_a_file:
   shell:
     "fastqc {input}"
 
-    
+
 rule run_multiqc:
   input:
     fastqc_output
