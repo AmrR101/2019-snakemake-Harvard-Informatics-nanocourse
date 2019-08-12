@@ -33,6 +33,9 @@ Informatics uses snakemake for the post sequencing pipeline and other workflows 
 10:15-10:30 - break . 
 10:30 - noon - snakemake 2 . 
 
+### Tasks we are gonig to do
+
+Inside the `data` folder, there are 8 fastq.gz files. We will do `fastqc` on each fastq files and we are going to compile multiple html files to a single one using `multiQC`. 
 
 ## Software we're going to use
 
