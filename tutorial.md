@@ -10,28 +10,22 @@ No license; the below content is under CC0. (Do with it what you will, and I hop
 
 Hi! I'm Ming Tang, I am a bioinformatics scientist at FAS informatics. I do a lot of data analysis :).
 
-This ~2 hour workshop is meant to show you how to get started using snakemake. This is something I picked up 2 years ago and I now use it for my daily work.
+This ~2 hour workshop is meant to show you how to get started using snakemake.
 
 Note, the only way you'll really learn to do all of this is by applying it to your own research and spending time on it :).
 
 ### Why use a workflow management tool?
 
-* Dependency management 
+* Dependency management
 * Reentrancy - start back up where you left off
-* Reusable 
-* Documented 
-* Portable 
+* Reusable
+* Documented
+* Portable
 
 There are many to choose from:
 https://github.com/pditommaso/awesome-pipeline
 
-Informatics uses snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.
-
-### Rough schedule
-
-1pm - 2 pm - snakemake 1   
-2pm - 2:10 pm - break   
-2:10 pm - 3:10 pm - snakemake 2  
+FAS Informatics choose to use snakemake for the post sequencing pipeline and other workflows mainly because it is written in python and is popular in the bioinformatics community.
 
 ### Tasks we are gonig to do
 
@@ -43,7 +37,7 @@ We're going to be using [conda](https://conda.io/en/latest/) and [snakemake](htt
 
 We'll be implementing a short read quality check and trimming pipeline, using [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), and [multiqc](https://multiqc.info/). No worries if you don't know what any of this means, it's not super critical to the snakemake side of things :)
 
-You can see the full set of installed software requirements [here](https://github.com/ctb/2019-snakemake-ucdavis/blob/master/binder/environment.yml), in a conda `environment.yml` file.
+You can see the full set of installed software requirements in a conda `environment.yml` file in the binder folder of the repository.
 
 **Note we have installed all the required tools in the JupyterLab container**
 
@@ -75,7 +69,7 @@ clone this repo into your home dir:
 git clone git@github.com:crazyhottommy/2019-snakemake-Harvard-Informatics-nanocourse.git
 ```
 
-Navigate to that folder.  Then open the tutorial.md file as a markdown preview.
+Navigate to that folder.  Then open the tutorial.md file as a markdown preview. Then in the tab of the markdown file, right click and choose "New View for Markdown File".  This will open the markdown file to the right side and you can close the original.  Now we can see the terminal and markdown side by side.
 
 ![markdown](img/markdown.png)
 
@@ -83,7 +77,7 @@ Navigate to that folder.  Then open the tutorial.md file as a markdown preview.
 
 ### Getting started - your first Snakefile
 
-Open the `Snakemake` file with a text editor.
+Open the `Snakemake` file with a text editor and write:
 
 ```
 rule fastqc_a_file:
@@ -94,7 +88,7 @@ rule fastqc_a_file:
 
 remember to click `File` --> `Save File`.
 
-insdie the terminal,  run snakemake:
+Now, in terminal make sure that you are in the directory of the repository for this tutorial and then run snakemake:
 
 ```
 snakemake
