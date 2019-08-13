@@ -16,11 +16,11 @@ Note, the only way you'll really learn to do all of this is by applying it to yo
 
 ### Why use a workflow management tool?
 
-* Dependency management .
+* Dependency management 
 * Reentrancy - start back up where you left off
-* Reusable .
-* Documented .
-* Portable .
+* Reusable 
+* Documented 
+* Portable 
 
 There are many to choose from:
 https://github.com/pditommaso/awesome-pipeline
@@ -29,13 +29,13 @@ Informatics uses snakemake for the post sequencing pipeline and other workflows 
 
 ### Rough schedule
 
-9 - 10:15 - snakemake 1 .
-10:15-10:30 - break .
-10:30 - noon - snakemake 2 .
+1pm - 2 pm - snakemake 1   
+2pm - 2:10 pm - break   
+2:10 pm - 3:10 pm - snakemake 2  
 
 ### Tasks we are gonig to do
 
-Inside the `data` folder, there are 8 fastq.gz files. We will do `fastqc` on each fastq files and we are going to compile multiple html files to a single one using `multiQC`.
+Inside the `data` folder, there are 8 fastq.gz files. We will use `Snakemake` do `fastqc` on each fastq files and compile multiple html files into a single one using `multiQC`.
 
 ## Software we're going to use
 
@@ -44,6 +44,8 @@ We're going to be using [conda](https://conda.io/en/latest/) and [snakemake](htt
 We'll be implementing a short read quality check and trimming pipeline, using [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), and [multiqc](https://multiqc.info/). No worries if you don't know what any of this means, it's not super critical to the snakemake side of things :)
 
 You can see the full set of installed software requirements [here](https://github.com/ctb/2019-snakemake-ucdavis/blob/master/binder/environment.yml), in a conda `environment.yml` file.
+
+**Note we have installed all the required tools in the JupyterLab container**
 
 ## Get setup
 
@@ -56,10 +58,11 @@ Wait for a couple minutes for your session to be created then click "Connect to 
 
 ![connect](img/connect.png)
 
-Open a terminal and in your home dir.
+Now, click `+` on the top left of the JupterLab and open a terminal and go to your home dir.
 
 We've installed everything you need with conda in this interactive session. Just ensure that you are using the correct conda.
 ```
+mportermahoney@holy7c19212:~$ cd ~
 mportermahoney@holy7c19212:~$ which conda
 /opt/conda/bin/conda
 ```
@@ -80,24 +83,19 @@ Navigate to that folder.  Then open the tutorial.md file as a markdown preview.
 
 ### Getting started - your first Snakefile
 
-To get a copy of the content of this workshop, do
-
-```bash
-git clone https://github.com/crazyhottommy/2019-snakemake-Harvard-Informatics-nanocourse
-```
-
-Create a new text file (`File`, `New File`, `Text file`) and write:
+Open the `Snakemake` file with a text editor.
 
 ```
 rule fastqc_a_file:
   shell:
     "fastqc data/0Hour_001_1.fq.gz"
 ```
-(I suggest copy/pasting this into JypyterLab.)
+(I suggest copy/pasting this into JupyterLab.)
 
-Then save it as a file named `Snakefile`.
+remember to click `File` --> `Save File`.
 
-Now, run snakemake:
+insdie the terminal,  run snakemake:
+
 ```
 snakemake
 ```
